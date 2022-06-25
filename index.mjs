@@ -11,6 +11,14 @@ const history = new Subject({
 
 const lms = new LMS();
 lms.add(history);
+lms.verify(history);
+lms.readAll();
+// console.log(lms.readAll())
+// console.log(lms.verify(history))
+// lms.remove(history)
+// console.log(lms.readAll())
 
-// console.log(LMS.subjects)
+
+
+
 
