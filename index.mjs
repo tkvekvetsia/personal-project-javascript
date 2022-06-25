@@ -27,36 +27,53 @@ lms.readAll();
 
 let teacherData = {
     name: {
-      first: "string",
-      last: "string"
+      first: "john",
+      last: "doe",
     },
-    dateOfBirth: "12.05.2000", // format date
+
+    dateOfBirth: "12.05.1999", // format date
+
     emails: [
       {
         email: "string",
-        primary: "boolean"
+        primary: true
       },
-      {}
-      
+      {
+        email: "string",
+        primary: false,
+      },
       
     ],
+
     phones: [
       {
-        phone: "string",
-        primary: "boolean"
+        phone: "555555",
+        primary: true
       },
+
+      {
+        phone: "11111",
+        primary: false
+      },
+
     ],
-    sex: "string", // male or female
+    sex: "male", // male or female
     subjects: [
       {
-        subject: "string" // just name property of subject.
+        subject: "history" // just name property of subject.
+      }, 
+      {
+        subject: 'geography' // just name property of subject.
       }, 
     ],
-    description: "string",
+    // description: "string",
 }
-// console.log(isDate(teacherData.dateOfBirth))
+
 const teachers = new Teachers();
 const teacherId = teachers.add(teacherData);
+// console.log(Teachers.teachers)
+console.log(teachers.read('1'));
+
 // const teacherId = teachers.add(data);
 
 

@@ -113,26 +113,24 @@ function isArrayOfObj(arr){
 
 
 export function validateTeacher(data){
+
     if(typeof data !== 'object'|| Array.isArray(data) || data === null){
         throw new TypeError ("Parameter is not an object");
     }
 
-    // let keys = Object.getOwnPropertyNames(data).length 
-
-    // if((keys > 6 && !data.description) || keys > 7) throw new Error("key is not valid")
 
     //data key type validation
     if(typeof data.name !== 'object'|| Array.isArray(data.name) || data.name === null) {
-        throw new Error('name is required and it must be object');
+        throw new Error('name is required and it must be an object');
     };
 
     if(typeof data.dateOfBirth !== 'string' || !isDate(data.dateOfBirth)){
         throw new Error("dateOfBirth is required and it must be string in date format");
-    }
+    };
 
     if(!Array.isArray(data.emails) || !isArrayOfObj(data.emails)){
         throw new Error('emails is required and it must be an array of objects');
-    }
+    };
 
     if(!Array.isArray(data.phones)|| !isArrayOfObj(data.phones)){
         throw new Error ("Phones is required and it must be an array of objects");
@@ -140,12 +138,84 @@ export function validateTeacher(data){
 
     if(typeof data.sex !== 'string'){
         throw new Error('sex is required and it must be a string');
-    }
+    };
 
     if(!Array.isArray(data.subjects) || !isArrayOfObj(data.subjects)){
         throw new Error ("subjects is required and it must be an array of objects");
+    };
+
+    let keys = Object.getOwnPropertyNames(data).length; 
+    if((keys > 6 && !data.description) || keys > 7) throw new Error("key is not valid");
+
+    //name key validation
+    if(typeof data.name.first !== 'string'){
+        throw new Error("first is required and it must be string");
+    };
+
+    if(typeof data.name.last !== 'string'){
+        throw new Error("last is required and it mus be string")
+    }; 
+
+    if(Object.getOwnPropertyNames(data.name).length !== 2){
+        throw new Error("kes is not valid")
+    };
+
+    //emails  validations
+    let primaryMail = 0;
+
+    data.emails.forEach(element => {
+        if(typeof element.email !== 'string'){
+            throw new Error("email is required and it must be a string");
+        }
+        if(typeof element.primary !== 'boolean'){
+            throw new Error("primary is required and it must be a boolean");
+        }
+        if(Object.getOwnPropertyNames(element).length > 2){
+            throw new Error ("key is not valid");
+        }
+
+        if(element.primary === true){
+            primaryMail++;
+        }
+    });
+
+    if(primaryMail !== 1){
+        throw new Error("there must be 1 primary email");
     }
+
+    //phones validations
+    let primaryPhone = 0;
+    data.phones.forEach(element => {
+        if(typeof element.phone !== 'string'){
+            throw new Error("phone is required and it must be a string");
+        }
+        if(typeof element.primary !== 'boolean'){
+            throw new Error("primary is required and it must be a boolean");
+        }
+        if(Object.getOwnPropertyNames(element).length > 2){
+            throw new Error ("key is not valid");
+        }
+        if(element.primary === true){
+            primaryPhone++;
+        }
+
+    });
+
+  
     
+    if(primaryPhone !== 1){
+        throw new Error("there must be 1 primary phone");
+    }
+
+    //subjects validation
+    data.subjects.forEach(element =>{
+        if(typeof element.subject !== "string"){
+            throw new Error("subject is required and it must be a string");
+        }
+        if(Object.getOwnPropertyNames(element).length !== 1){
+            throw new Error("Key is not valid");
+        }
+    })
 
 }
 
