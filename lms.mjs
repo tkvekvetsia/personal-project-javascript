@@ -1,13 +1,20 @@
 import { validateSubject, lmsSubjValidator, objEqual} from "./validator.mjs";
 
 export class Subject{
-    static counter = 1;
-    constructor(subj){
+    static counter = 0;
+    #id = String(Subject.counter);
+    constructor(subj){    
         validateSubject(subj);
-        this.id = String(Subject.counter++);
         Object.assign(this, subj)
+        Subject.counter++
+        // let id = (String(Subject.counter++));
+    }
+    get id(){
+        return this.#id
     }
 }
+
+
 
 export class LMS{
     static counter = 1;
@@ -22,6 +29,8 @@ export class LMS{
     verify(subj){
         lmsSubjValidator(subj);
         let result = false;
+
+
         LMS.subjects.forEach((value, key) => {
             if(objEqual(subj, value)){
                 result = true;
@@ -41,7 +50,11 @@ export class LMS{
     }
     
     readAll(){
-        if(arguments.length > 0) throw new Error('Argument was passed to the method')
-        return [...LMS.subjects.values()];
+        if(arguments.length > 0) throw new Error('Argument was passed to the method');
+        const arr = [];
+        LMS.subjects.forEach((value, id)=>{
+            arr.push({id, ...value})
+        })
+        return arr;
     }
 }

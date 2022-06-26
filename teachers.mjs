@@ -14,8 +14,7 @@ export class Teachers{
     read(id){
         if(typeof id !== "string") throw new Error("id is required and it must be a string");
         let obj = {};
-        let key = id;
-        obj[key] = {...Teachers.teachers.get(id)}
+        obj= {id, ...Teachers.teachers.get(id)}
         if(Teachers.teachers.has(id)){
             return obj;
         }else{
@@ -27,7 +26,7 @@ export class Teachers{
         if(typeof id !== "string") throw new Error("id is required and it must be a string");
         if(!Teachers.teachers.has(id)) throw new Error ("invalid id");
         validateTeacher(updateProfile);
-        Object.assign(Teachers.teachers.get(id), updateProfile);
+        Teachers.teachers.set(id, updateProfile);
         return id;
     }
 
