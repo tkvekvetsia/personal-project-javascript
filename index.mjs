@@ -66,14 +66,58 @@ let teacherData = {
         subject: 'geography' // just name property of subject.
       }, 
     ],
-    // description: "string",
+    description: "true",
 }
 
 const teachers = new Teachers();
 const teacherId = teachers.add(teacherData);
 // console.log(Teachers.teachers)
-console.log(teachers.read('1'));
-
+// console.log(teachers.read(teacherId));
+const  updatedProfile ={
+    name: {
+        first: "jim",
+        last: "boe",
+      },
+  
+      dateOfBirth: "11.02.1995", // format date
+  
+      emails: [
+        {
+          email: "string-1",
+          primary: true
+        },
+        {
+          email: "string--2",
+          primary: false,
+        },
+        
+      ],
+  
+      phones: [
+        {
+          phone: "6666",
+          primary: true
+        },
+  
+        {
+          phone: "2222",
+          primary: false
+        },
+  
+      ],
+      sex: "male", // male or female
+      subjects: [
+        {
+          subject: "history" // just name property of subject.
+        }, 
+        
+        
+      ],
+      description: "string"
+}
+const  teacherId1 = teachers.update(teacherId, updatedProfile);
+teachers.remove(teacherId);
+console.log(teachers.read(teacherId));
 // const teacherId = teachers.add(data);
 
 

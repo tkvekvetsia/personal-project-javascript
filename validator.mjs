@@ -119,7 +119,7 @@ export function validateTeacher(data){
     }
 
 
-    //data key type validation
+    //data key validation
     if(typeof data.name !== 'object'|| Array.isArray(data.name) || data.name === null) {
         throw new Error('name is required and it must be an object');
     };
@@ -147,17 +147,19 @@ export function validateTeacher(data){
     let keys = Object.getOwnPropertyNames(data).length; 
     if((keys > 6 && !data.description) || keys > 7) throw new Error("key is not valid");
 
+    if(data.description && typeof data.description !== 'string')throw new Error("description must be a string")
+
     //name key validation
     if(typeof data.name.first !== 'string'){
         throw new Error("first is required and it must be string");
     };
 
     if(typeof data.name.last !== 'string'){
-        throw new Error("last is required and it mus be string")
+        throw new Error("last is required and it mus be string");
     }; 
 
     if(Object.getOwnPropertyNames(data.name).length !== 2){
-        throw new Error("kes is not valid")
+        throw new Error("kes is not valid");
     };
 
     //emails  validations
