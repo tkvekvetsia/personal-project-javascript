@@ -208,10 +208,17 @@ const groupId = groups.add(room);
 // console.log(pupil.id)
 groups.addPupil(groupId, pupil);
 // console.log(Groups.groups)
-groups.removePupil(groupId, pupil.id);
+// groups.removePupil(groupId, pupil.id);
 // console.log(pupil.id)
-console.log( Groups.groups.get(groupId).pupils)
+console.log( Groups.groups.get(groupId).room)
 // console.log(Groups.groups)
+groups.update(groupId, {
+  room: 237
+})
+console.log( Groups.groups.get(groupId).room)
+
+// groups.read(groupId);
+// console.log(groups.read(groupId))
 
 
 
