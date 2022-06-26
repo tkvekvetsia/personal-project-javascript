@@ -1,4 +1,5 @@
 import { validatePerson, validatePupil } from "./validator.mjs";
+import { Pupils } from "./pupils.mjs";
 
 export class Groups{
     static counter = 0;
@@ -20,6 +21,10 @@ export class Groups{
         validatePerson(pupil);
         let keys = Object.getOwnPropertyNames(pupil).length; 
         if((keys > 5 && !pupil.description) || keys > 6) throw new Error("key is not valid");
-        Groups.rooms.set(groupId,  {...Groups.rooms.get(groupId), ...pupil})
+        let obj = {}
+        obj[pupil.id] =pupil
+        Groups.rooms.set(groupId,  {...Groups.rooms.get(groupId), ...obj})
     }
+
+
 }

@@ -202,9 +202,10 @@ let pupilData = {
 const room = 236;
 const groups = new Groups();
 const groupId = groups.add(room);
-console.log(groupId)
+// console.log(groupId)
+console.log(pupil.id)
 groups.addPupil(groupId, pupil);
-// console.log(Groups.rooms)
+console.log(Groups.rooms)
 
   // will remove pupil
 //   pupils.remove(pupil.id)
