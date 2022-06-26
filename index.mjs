@@ -215,10 +215,11 @@ console.log( Groups.groups.get(groupId).room)
 groups.update(groupId, {
   room: 237
 })
-console.log( Groups.groups.get(groupId).room)
+// console.log( Groups.groups.get(groupId).room)
+// console.log(groups.read(groupId))
+// console.log(groups.readAll());
 
-groups.read(groupId);
-console.log(groups.read(groupId))
+
 
 
 

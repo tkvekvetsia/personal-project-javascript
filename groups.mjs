@@ -73,4 +73,16 @@ export class Groups{
         return obj;
     }
 
+    readAll(){
+        if(arguments.length > 0){
+            throw new Error("method shouldn't take an argument");
+        }
+        let arrAll = [];
+
+        for (let i of Groups.groups.keys()){
+            arrAll.push(this.read(i))
+        }
+        return arrAll;
+    }
+
 }
