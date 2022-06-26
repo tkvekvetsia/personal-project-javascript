@@ -28,21 +28,27 @@ export class Groups{
         Groups.groups.get(groupId).pupils.push({id : pupilId, ...pupil})
     }
     
-    // removePupil(groupId, pupilId){
-    //     if(typeof groupId !== 'string'){
-    //         throw new Error("group id is not a string")
-    //     }
-    //     if(!Groups.groups.get(groupId))throw new Error('groupId is not valid')
+    removePupil(groupId, pupilId){
+        if(typeof groupId !== 'string'){
+            throw new Error("group id is not a string")
+        }
+        if(!Groups.groups.get(groupId))throw new Error('groupId is not valid')
 
-    //     if(typeof pupilId !== 'string'){
-    //         throw new TypeError("pupilId is not a string")
-    //     }
-    //     if(!Pupils.pupilsDb.get(pupilId)){
-    //         throw new Error("pupilId is not valid")
-    //     }
+        if(typeof pupilId !== 'string'){
+            throw new TypeError("pupilId is not a string")
+        }
+        if(!Pupils.pupilsDb.get(pupilId)){
+            throw new Error("pupilId is not valid")
+        }
 
 
-    // }
+        let arrOfPupils = Groups.groups.get(groupId).pupils
+        for (let i = 0; i < arrOfPupils.length; i++){
+            if(arrOfPupils[i].id){
+                arrOfPupils.splice(i, 1);
+            }
+        }
+    }
 
 
 }

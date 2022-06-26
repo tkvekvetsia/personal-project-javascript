@@ -207,14 +207,12 @@ const groupId = groups.add(room);
 // console.log(groupId)
 // console.log(pupil.id)
 groups.addPupil(groupId, pupil);
-console.log(Groups.groups.get('0').pupils)
-// groups.removePupil(groupId, pupil.id);
-// console.log(pupil.id)
-// console.log(Groups.groups.get(groupId)[pupil.id])
 // console.log(Groups.groups)
-  // will remove pupil
-//   pupils.remove(pupil.id)
-//   console.log(pupils.read(pupil.id))
+groups.removePupil(groupId, pupil.id);
+// console.log(pupil.id)
+console.log( Groups.groups.get(groupId).pupils)
+// console.log(Groups.groups)
+
 
 
 
