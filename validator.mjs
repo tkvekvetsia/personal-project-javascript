@@ -1,5 +1,6 @@
 import { LMS } from "./lms.mjs"
 
+
 function validateObj(obj){
     let result = false;
     if(typeof obj == 'object'&& !Array.isArray(obj) && obj !== null){
@@ -216,3 +217,5 @@ export function validatePupil(data){
     if((keys > 4 && !data.description) || keys > 5) throw new Error("key is not valid");
 
 }
+
+

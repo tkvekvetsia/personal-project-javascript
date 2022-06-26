@@ -217,8 +217,8 @@ groups.update(groupId, {
 })
 console.log( Groups.groups.get(groupId).room)
 
-// groups.read(groupId);
-// console.log(groups.read(groupId))
+groups.read(groupId);
+console.log(groups.read(groupId))
 
 
 

@@ -5,6 +5,13 @@ export class Groups{
     static counter = 0;
     static groups = new Map();
 
+    #validateGroupId(groupId){
+        if(typeof groupId !== 'string'){
+            throw new Error("group id is not a string");
+        }
+        if(!Groups.groups.get(groupId))throw new Error('groupId is not valid');
+    }
+
     add(room){
         if(typeof  room !== 'number'){
             throw new TypeError("parameter is not a number");
@@ -15,10 +22,7 @@ export class Groups{
     }
 
     addPupil(groupId, pupil){
-        if(typeof groupId !== 'string'){
-            throw new Error("group id is not a string");
-        }
-        if(!Groups.groups.get(groupId))throw new Error('groupId is not valid')
+       this.#validateGroupId(groupId)
 
         validatePerson(pupil);
         let keys = Object.getOwnPropertyNames(pupil).length; 
@@ -29,10 +33,7 @@ export class Groups{
     }
     
     removePupil(groupId, pupilId){
-        if(typeof groupId !== 'string'){
-            throw new Error("group id is not a string");
-        };
-        if(!Groups.groups.get(groupId))throw new Error('groupId is not valid');
+       this.#validateGroupId(groupId)
 
         if(typeof pupilId !== 'string'){
             throw new TypeError("pupilId is not a string");
@@ -51,10 +52,7 @@ export class Groups{
     }
 
     update(groupId, updateInfo){
-        if(typeof groupId !== 'string'){
-            throw new Error("group id is not a string");
-        }
-        if(!Groups.groups.get(groupId))throw new Error('groupId is not valid');
+        this.#validateGroupId(groupId);
 
         if(typeof updateInfo !== 'object'|| Array.isArray(updateInfo) || updateInfo === null){
             throw new TypeError ("Parameter is not an object");
@@ -67,5 +65,12 @@ export class Groups{
         Groups.groups.get(groupId).room = updateInfo.room
     }
 
+    read(groupID){
+        this.#validateGroupId(groupID);
+        let obj = {}
+        let id = groupID;
+        obj = {id, ...Groups.groups.get(groupID)}
+        return obj;
+    }
 
 }
