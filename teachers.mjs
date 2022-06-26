@@ -1,10 +1,11 @@
-import { validateTeacher } from "./validator.mjs";
+import { validatePerson, validateTeacher } from "./validator.mjs";
 
 export class Teachers{
     static counter = 1;
     static teachers = new Map();
 
     add(data){
+        validatePerson(data);
         validateTeacher(data);
         let id = String(Teachers.counter++);
         Teachers.teachers.set(id, data);

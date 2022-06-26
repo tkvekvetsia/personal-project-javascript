@@ -2,7 +2,7 @@ import { validateSubject, lmsSubjValidator, objEqual} from "./validator.mjs";
 
 export class Subject{
     static counter = 0;
-    #id = String(Subject.counter);
+    #subjectid = String(Subject.counter);
     constructor(subj){    
         validateSubject(subj);
         Object.assign(this, subj)
@@ -10,7 +10,7 @@ export class Subject{
         // let id = (String(Subject.counter++));
     }
     get id(){
-        return this.#id
+        return this.#subjectid
     }
 }
 
