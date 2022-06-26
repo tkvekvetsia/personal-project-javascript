@@ -1,7 +1,7 @@
 import { Subject, LMS } from "./lms.mjs";
 import { Teachers } from "./teachers.mjs";
 import { Pupils } from "./pupils.mjs";
-
+import { Groups } from "./groups.mjs";
 
 //lms
 
@@ -37,7 +37,7 @@ lms.add(geography);
 // console.log(lms.readAll())
 // console.log(lms.readAll())
 // console.log(lms.verify(history))
-// lms.verify(history)
+// console.log(lms.verify(history))
 // lms.remove(history)
 // console.log(lms.readAll())
 
@@ -162,7 +162,7 @@ let pupilData = {
       }
     ],
     sex: "male", // male OR female
-    description: "string"
+    // description: "string"
   }
   // all fields are required, except description
   
@@ -171,8 +171,9 @@ let pupilData = {
   
   // Create a new pupil
   const pupil = pupils.add(pupilData);
+  // console.log(pupil)
   
-  console.log(pupil.id) // should return pupil 
+  // console.log(pupil.id) // should return pupil 
 
   pupils.read(pupil.id)
   
@@ -198,9 +199,15 @@ let pupilData = {
 //   console.log(pupils.read(pupil.id))
 
 
-  
+const room = 236;
+const groups = new Groups();
+const groupId = groups.add(room);
+console.log(groupId)
+groups.addPupil(groupId, pupil);
+// console.log(Groups.rooms)
+
   // will remove pupil
-  pupils.remove(pupil.id)
+//   pupils.remove(pupil.id)
 //   console.log(pupils.read(pupil.id))
 
 

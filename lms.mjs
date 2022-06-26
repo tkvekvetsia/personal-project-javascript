@@ -29,13 +29,11 @@ export class LMS{
     verify(subj){
         validateSubject(subj);
         let result = false;
-
-
-        LMS.subjects.forEach((value, key) => {
-            if(objEqual(subj, value)){
-                result = true;
+        for (let obj of LMS.subjects.values()){
+            if(objEqual(subj, obj)){
+                return true;
             }
-        })
+        }
         return result;
     }
 
@@ -44,7 +42,6 @@ export class LMS{
         LMS.subjects.forEach((value, key) => {
             if(objEqual(subj, value)){
                 LMS.subjects.delete(key)
-
             }
         })
     }
