@@ -32,7 +32,9 @@ const biology = new Subject({
 
 const lms = new LMS();
 lms.add(history);
+// console.log(history)
 lms.add(geography);
+lms.verify(history)
 // console.log(lms.verify(history));
 // console.log(lms.readAll())
 // console.log(lms.readAll())
@@ -203,10 +205,13 @@ const room = 236;
 const groups = new Groups();
 const groupId = groups.add(room);
 // console.log(groupId)
-console.log(pupil.id)
+// console.log(pupil.id)
 groups.addPupil(groupId, pupil);
-console.log(Groups.rooms)
-
+console.log(Groups.groups.get('0').pupils)
+// groups.removePupil(groupId, pupil.id);
+// console.log(pupil.id)
+// console.log(Groups.groups.get(groupId)[pupil.id])
+// console.log(Groups.groups)
   // will remove pupil
 //   pupils.remove(pupil.id)
 //   console.log(pupils.read(pupil.id))
