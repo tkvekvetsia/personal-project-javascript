@@ -116,7 +116,7 @@ const  updatedProfile ={
       description: "string"
 }
 const  teacherId1 = teachers.update(teacherId, updatedProfile);
-teachers.remove(teacherId);
+// teachers.remove(teacherId);
 console.log(teachers.read(teacherId));
 // const teacherId = teachers.add(data);
 

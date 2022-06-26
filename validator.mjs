@@ -136,7 +136,7 @@ export function validateTeacher(data){
         throw new Error ("Phones is required and it must be an array of objects");
     };
 
-    if(typeof data.sex !== 'string'){
+    if(data.sex !== "male" && data.sex !== "female"){
         throw new Error('sex is required and it must be a string');
     };
 
@@ -221,3 +221,6 @@ export function validateTeacher(data){
 
 }
 
+export function validatePupil(data){
+
+}

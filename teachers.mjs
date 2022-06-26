@@ -2,7 +2,7 @@ import { validateTeacher } from "./validator.mjs";
 
 export class Teachers{
     static counter = 1;
-    static teachers = new Map()
+    static teachers = new Map();
 
     add(data){
         validateTeacher(data);
