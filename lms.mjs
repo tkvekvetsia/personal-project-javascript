@@ -1,4 +1,4 @@
-import { validateSubject, lmsSubjValidator, objEqual} from "./validator.mjs";
+import { validateSubject,  objEqual} from "./validator.mjs";
 
 export class Subject{
     static counter = 0;
@@ -21,13 +21,13 @@ export class LMS{
     static subjects = new Map();
 
     add(subj){
-        lmsSubjValidator(subj);
+        validateSubject(subj);
         let id = String(LMS.counter++);
         LMS.subjects.set(id, subj)
     }
 
     verify(subj){
-        lmsSubjValidator(subj);
+        validateSubject(subj);
         let result = false;
 
 
@@ -40,7 +40,7 @@ export class LMS{
     }
 
     remove(subj){
-        lmsSubjValidator(subj);
+        validateSubject(subj);
         LMS.subjects.forEach((value, key) => {
             if(objEqual(subj, value)){
                 LMS.subjects.delete(key)

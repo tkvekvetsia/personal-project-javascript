@@ -9,7 +9,9 @@ const history = new Subject({
     title: 'history',
     lessons: 24,
     // description : "string"
+
 })
+
 
 const geography = new Subject({
     title: 'geography',
@@ -17,7 +19,8 @@ const geography = new Subject({
 })
 const biology = new Subject({
     title: 'geography',
-    lessons: 24
+    lessons: 24,
+   description: '2'
 })
 
 // console.log(history)
