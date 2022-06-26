@@ -26,7 +26,7 @@ const biology = new Subject({
 // console.log(history)
 
 
-console.log(history.id)
+// console.log(history.id)
 
 
 
@@ -172,16 +172,38 @@ let pupilData = {
   // Create a new pupil
   const pupil = pupils.add(pupilData);
   
-//   console.log(pupil.id) // should return pupil ID
+  console.log(pupil.id) // should return pupil 
+
+  pupils.read(pupil.id)
   
-  // will return Pupils data including pupil's id
-//   pupils.read(pupil.id)
-  
+//   will return Pupils data including pupil's id
+//   console.log(pupils.read(pupil.id))
+  let pupilUpdate = {
+    name: {
+      first: "anna",
+      last: "goo"
+    },
+    dateOfBirth: "12.05.2015", // format date
+    phones: [
+      {
+        phone: "333",
+        primary: true
+      }
+    ],
+    sex: "female", // male OR female
+    description: "string"
+  }
   // will update Pupil. This method should use the same validation as a add method
-//   pupils.update(pupil.id, updatedProfile)
+//   console.log(pupils.update(pupil.id, pupilUpdate))
+//   console.log(pupils.read(pupil.id))
+
+
   
   // will remove pupil
-//   pupils.remove(pupil.id)
+  pupils.remove(pupil.id)
+//   console.log(pupils.read(pupil.id))
+
+
 
 
 

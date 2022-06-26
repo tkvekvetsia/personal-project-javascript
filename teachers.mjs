@@ -26,6 +26,7 @@ export class Teachers{
     update(id, updateProfile){
         if(typeof id !== "string") throw new Error("id is required and it must be a string");
         if(!Teachers.teachers.has(id)) throw new Error ("invalid id");
+        validatePerson(updateProfile);
         validateTeacher(updateProfile);
         Teachers.teachers.set(id, updateProfile);
         return id;
