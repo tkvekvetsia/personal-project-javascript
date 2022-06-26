@@ -5,7 +5,7 @@ import { Teachers } from "./teachers.mjs";
 //lms
 
 const history = new Subject({
-    title: 'History',
+    title: 'history',
     lessons: 24,
     // description : "string"
 })
@@ -62,9 +62,9 @@ let teacherData = {
       {
         subject: "history" // just name property of subject.
       }, 
-      {
-        subject: 'geography' // just name property of subject.
-      }, 
+    //   {
+    //     subject: 'geography' // just name property of subject.
+    //   }, 
     ],
     description: "true",
 }
@@ -117,7 +117,8 @@ const  updatedProfile ={
 }
 const  teacherId1 = teachers.update(teacherId, updatedProfile);
 // teachers.remove(teacherId);
-console.log(teachers.read(teacherId));
+console.log(teacherId)
+console.log(teachers.read(teacherId)[teacherId].subjects);
 // const teacherId = teachers.add(data);
 
 

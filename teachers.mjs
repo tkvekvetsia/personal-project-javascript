@@ -13,8 +13,11 @@ export class Teachers{
 
     read(id){
         if(typeof id !== "string") throw new Error("id is required and it must be a string");
+        let obj = {};
+        let key = id;
+        obj[key] = {...Teachers.teachers.get(id)}
         if(Teachers.teachers.has(id)){
-            return {id: {...Teachers.teachers.get(id)}};
+            return obj;
         }else{
             return null;
         }

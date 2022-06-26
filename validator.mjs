@@ -217,6 +217,17 @@ export function validateTeacher(data){
         if(Object.getOwnPropertyNames(element).length !== 1){
             throw new Error("Key is not valid");
         }
+
+        let condition = false;
+        LMS.subjects.forEach(value => {
+            if(element.subject == value.title ){
+                condition =true;
+            }
+        })
+
+        if(!condition){
+            throw Error("subject is not in database")
+        }
     })
 
 }
