@@ -167,6 +167,22 @@ let pupilData = {
     sex: "male", // male OR female
     // description: "string"
   }
+
+  let pupilData2 = {
+    name: {
+      first: "john",
+      last: "doe"
+    },
+    dateOfBirth: "12.05.2015", // format date
+    phones: [
+      {
+        phone: "22",
+        primary: true
+      }
+    ],
+    sex: "male", // male OR female
+    // description: "string"
+  }
   // all fields are required, except description
   
   // Create new Pupil from Pupil's data
@@ -174,12 +190,14 @@ let pupilData = {
   
   // Create a new pupil
   const pupil = pupils.add(pupilData);
+  const pupil2 = pupils.add(pupilData2);
+
   // console.log(pupil)
   
   // console.log(pupil.id) // should return pupil 
 
   pupils.read(pupil.id)
-  
+  // console.log(pupils.read(pupil2.id))
 //   will return Pupils data including pupil's id
 //   console.log(pupils.read(pupil.id))
   let pupilUpdate = {
@@ -208,6 +226,8 @@ const groupId = groups.add(room);
 // console.log(groupId)
 // console.log(pupil.id)
 groups.addPupil(groupId, pupil);
+groups.addPupil(groupId, pupil2);
+
 // console.log(Groups.groups)
 // groups.removePupil(groupId, pupil.id);
 // console.log(pupil.id)
@@ -248,22 +268,32 @@ const record = {
   lesson: 1,
   mark: 9
 };
+const record1 = {
+  pupilId: pupil2.id,
+  teacherId: teacherId,
+  subjectId: '3',
+  lesson: 1,
+  mark: 9
+};
 
 
 
 
 // Gradebooks.gradebooksDb
-// gradebooks.addRecord(gradebook, record);
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 gradebooks.addRecord(gradebook, record);
+gradebooks.addRecord(gradebook, record1);
+
 
 // gradebooks.addRecord(gradebook, record);
 // gradebooks.addRecord(gradebook, record);
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
+// console.log(gradebooks.read(gradebook, pupilID))
 console.log(gradebooks.readAll(gradebook))
+// console.log(gradebooks.readAll(gradebook)[1].records)
 // console.log(teachers.read(teacherId));
 
 

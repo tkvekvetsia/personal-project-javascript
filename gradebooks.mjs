@@ -34,6 +34,7 @@ export class Gradebooks{
 
     addRecord(gradebookId, recordData){
         vaidateRecord(gradebookId, recordData);
+
         let recordObj = {}
         
         //get name and id
@@ -41,6 +42,11 @@ export class Gradebooks{
         let pupilFullName = ''
         let pupilsArr = Gradebooks.gradebooksDb.get(gradebookId).pupils;
         let gradbookObj = Gradebooks.gradebooksDb.get(gradebookId);
+        for (let i = 0; i < pupilsArr.length; i++){
+            if(!pupilsArr[i].id){
+                throw Error("pupil id is not valid")
+            }
+        }
 
         for (let i = 0; i < pupilsArr.length; i++){
             if(pupilsArr[i].id === recordData.pupilId){
@@ -53,13 +59,19 @@ export class Gradebooks{
         
 
         //get teacher,
-        let teacherObj = this.teachers.read(recordData.teacherId)  
+              //validation
+        if(!this.teachers.read(recordData.teacherId))  {
+            throw new Error("teacher id is not valid")
+        }
+
+        let teacherObj = this.teachers.read(recordData.teacherId)
         let teacherFullName = `${teacherObj.name.first} ${teacherObj.name.last}`
         recordObj.teacher = teacherFullName;
 
          //get subject
          const subjArr = this.lms.readAll();
          let subject = ''
+   
          for(let i = 0; i < subjArr.length; i++){
              if(subjArr[i].id === recordData.subjectId){
                  subject = subjArr[i].title
@@ -88,19 +100,38 @@ export class Gradebooks{
 
     }
 
+    read(gradebookId, pupilId){
+        if(typeof gradebookId !== 'string'){
+            throw new Error("gradebookId is required and it must be String")
+        }
+        if(!Gradebooks.gradebooksDb.get(gradebookId)[pupilId]){
+            throw new Error("gradbookid is not valid")
+        }
+
+        if(typeof pupilId !== 'string'){
+            throw new Error("pupilId is required and it must be a string")
+        }
+
+        return Gradebooks.gradebooksDb.get(gradebookId)[pupilId];
+    }
+
     readAll(gradebookId){
         if(typeof gradebookId !== "string"){
             throw new Error("grade book id is required and it must be a string")
         }
 
         if(!Gradebooks.gradebooksDb.has(gradebookId)){
-            throw new Error('id is not valid');
+            throw new Error('gradbookid is not valid');
         }
 
-        let arr = []
+        const arr = []
         let  id = gradebookId;
-        let obj = {id, ...Gradebooks.gradebooksDb.get(gradebookId)}
-        arr.push(obj)
+        
+        for (let key in Gradebooks.gradebooksDb.get(gradebookId)){
+            if(key !== 'room' && key !=='pupils'){
+                arr.push(this.read(gradebookId, key))
+            }
+        }
 
         return arr;
     }
