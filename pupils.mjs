@@ -10,18 +10,10 @@ export class Pupils{
         validatePupil(pupilData);
 
         let id = String(Pupils.counter++);
-
         let obj = {...pupilData};
-
-        Object.defineProperty(obj, 'id', {
-            get (){
-                return id;
-            }
-        })
-
         Pupils.pupilsDb.set(id, pupilData);
 
-        return obj;
+        return {id, ...obj};
     }
 
     read(id){

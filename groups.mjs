@@ -3,6 +3,7 @@ import { Pupils } from "./pupils.mjs";
 
 export class Groups{
     static counter = 0;
+    
     static groups = new Map();
 
     #validateGroupId(groupId){
@@ -20,6 +21,8 @@ export class Groups{
         Groups.groups.set(id, {room: room, pupils: []});
         return id;
     }
+
+
 
     addPupil(groupId, pupil){
        this.#validateGroupId(groupId)

@@ -2,6 +2,7 @@ import { Subject, LMS } from "./lms.mjs";
 import { Teachers } from "./teachers.mjs";
 import { Pupils } from "./pupils.mjs";
 import { Groups } from "./groups.mjs";
+import { Gradebooks } from "./gradebooks.mjs";
 
 //lms
 
@@ -32,7 +33,7 @@ const biology = new Subject({
 
 const lms = new LMS();
 lms.add(history);
-// console.log(history)
+// console.log(history.id)
 lms.add(geography);
 lms.verify(history)
 // console.log(lms.verify(history));
@@ -210,7 +211,7 @@ groups.addPupil(groupId, pupil);
 // console.log(Groups.groups)
 // groups.removePupil(groupId, pupil.id);
 // console.log(pupil.id)
-console.log( Groups.groups.get(groupId).room)
+// console.log( Groups.groups.get(groupId).room)
 // console.log(Groups.groups)
 groups.update(groupId, {
   room: 237
@@ -221,8 +222,29 @@ groups.update(groupId, {
 
 
 
+//gradebooks
 
 
 
+const pupilID = pupil.id;
+const teacherID = teacherId;
+const gradebooks = new Gradebooks(groups, teachers, lms);
 
+const gradebook = gradebooks.add(groupId);
 
+// console.log(Groups.groups)
+// console.log(Teachers.teachers)
+// console.log(LMS.subjects)
+// console.log(Pupils.pupilsDb)
+console.log(Gradebooks.gradebooksDb);
+gradebooks.clear();
+console.log(Gradebooks.gradebooksDb);
+
+console.log(pupil.id)
+const record = {
+  pupilId: pupilID,
+  teacherId: teacherId,
+  subjectId: history.id,
+  lesson: 1,
+  mark: 9
+};
