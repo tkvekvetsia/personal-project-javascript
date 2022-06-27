@@ -125,14 +125,11 @@ export class Gradebooks{
         }
 
         const arr = []
-        let  id = gradebookId;
-        
         for (let key in Gradebooks.gradebooksDb.get(gradebookId)){
             if(key !== 'room' && key !=='pupils'){
                 arr.push(this.read(gradebookId, key))
             }
         }
-
         return arr;
     }
 
