@@ -83,12 +83,28 @@ export class Gradebooks{
         }else{
             gradbookObj[pupilId].records.push(recordObj);
         }
-      
-
         
 
 
     }
 
+    readAll(gradebookId){
+        if(typeof gradebookId !== "string"){
+            throw new Error("grade book id is required and it must be a string")
+        }
+
+        if(!Gradebooks.gradebooksDb.has(gradebookId)){
+            throw new Error('id is not valid');
+        }
+
+        let arr = []
+        let  id = gradebookId;
+        let obj = {id, ...Gradebooks.gradebooksDb.get(gradebookId)}
+        arr.push(obj)
+
+        return arr;
+    }
+
+    
   
 }

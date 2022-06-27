@@ -258,9 +258,12 @@ const record = {
 
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 gradebooks.addRecord(gradebook, record);
+
 // gradebooks.addRecord(gradebook, record);
 // gradebooks.addRecord(gradebook, record);
-console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// console.log(Gradebooks.gradebooksDb.get(gradebook));
+console.log(gradebooks.readAll(gradebook))
 // console.log(teachers.read(teacherId));
 
 
