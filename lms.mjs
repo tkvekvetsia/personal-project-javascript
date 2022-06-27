@@ -22,7 +22,7 @@ export class LMS{
 
     add(subj){
         validateSubject(subj);
-        let id = String(LMS.counter++);
+        let id = subj.id;
         LMS.subjects.set(id, subj)
     }
 

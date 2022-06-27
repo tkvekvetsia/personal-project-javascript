@@ -219,3 +219,37 @@ export function validatePupil(data){
 }
 
 
+export function vaidateRecord(gradebookId, recordData){
+    if(typeof gradebookId !== 'string'){
+        throw new Error ("gradbookId is required and it must be a string")
+    }
+    if(typeof recordData !== 'object'|| Array.isArray(recordData) || recordData === null){
+        throw new TypeError ("Parameter is not an object");
+    }
+
+    // record key validation
+    if(typeof recordData.pupilId !== 'string'){
+        throw new Error("pupilId is required and it must be a string")
+    } 
+
+    if(typeof recordData.teacherId !== 'string'){
+        throw new Error("teacherId is required and it must be a string")
+    } 
+
+    if(typeof recordData.subjectId !== 'string'){
+        throw new Error("subjectId is required and it must be a string")
+    } 
+
+    if(typeof recordData.lesson !== 'number'){
+        throw new Error("pupilId is required and it must be a number")
+    }
+
+    if(typeof recordData.mark !== 'number'){
+        throw new Error("mark is required and it must be a number")
+    } 
+
+    if(Object.getOwnPropertyNames(recordData).length > 5){
+        throw new Error("key is not valid")
+    }
+
+}

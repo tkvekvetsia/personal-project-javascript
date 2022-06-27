@@ -236,11 +236,11 @@ const gradebook = gradebooks.add(groupId);
 // console.log(Teachers.teachers)
 // console.log(LMS.subjects)
 // console.log(Pupils.pupilsDb)
-console.log(Gradebooks.gradebooksDb);
-gradebooks.clear();
-console.log(Gradebooks.gradebooksDb);
+// console.log(Gradebooks.gradebooksDb);
+// gradebooks.clear();
+// console.log(Gradebooks.gradebooksDb);
 
-console.log(pupil.id)
+// console.log(pupil.id)
 const record = {
   pupilId: pupilID,
   teacherId: teacherId,
@@ -248,3 +248,20 @@ const record = {
   lesson: 1,
   mark: 9
 };
+
+
+
+
+// Gradebooks.gradebooksDb
+// gradebooks.addRecord(gradebook, record);
+// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+
+// console.log(Gradebooks.gradebooksDb.get(gradebook));
+gradebooks.addRecord(gradebook, record);
+// gradebooks.addRecord(gradebook, record);
+// gradebooks.addRecord(gradebook, record);
+console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// console.log(teachers.read(teacherId));
+
+
+// console.log(LMS.subjects)
