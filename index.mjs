@@ -38,8 +38,6 @@ lms.add(geography);
 lms.verify(history)
 // console.log(lms.verify(history));
 // console.log(lms.readAll())
-// console.log(lms.readAll())
-// console.log(lms.verify(history))
 // console.log(lms.verify(history))
 // lms.remove(history)
 // console.log(lms.readAll())
@@ -197,9 +195,7 @@ let pupilData = {
   // console.log(pupil.id) // should return pupil 
 
   pupils.read(pupil.id)
-  // console.log(pupils.read(pupil2.id))
-//   will return Pupils data including pupil's id
-//   console.log(pupils.read(pupil.id))
+
   let pupilUpdate = {
     name: {
       first: "anna",
@@ -215,10 +211,6 @@ let pupilData = {
     sex: "female", // male OR female
     description: "string"
   }
-  // will update Pupil. This method should use the same validation as a add method
-//   console.log(pupils.update(pupil.id, pupilUpdate))
-//   console.log(pupils.read(pupil.id))
-
 
 const room = 236;
 const groups = new Groups();
@@ -252,13 +244,9 @@ const gradebooks = new Gradebooks(groups, teachers, lms);
 
 const gradebook = gradebooks.add(groupId);
 
-// console.log(Groups.groups)
-// console.log(Teachers.teachers)
-// console.log(LMS.subjects)
-// console.log(Pupils.pupilsDb)
-// console.log(Gradebooks.gradebooksDb);
+
+;
 // gradebooks.clear();
-// console.log(Gradebooks.gradebooksDb);
 
 // console.log(pupil.id)
 const record = {
@@ -287,14 +275,11 @@ gradebooks.addRecord(gradebook, record);
 gradebooks.addRecord(gradebook, record1);
 
 
-// gradebooks.addRecord(gradebook, record);
-// gradebooks.addRecord(gradebook, record);
+
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
 // console.log(gradebooks.readAll(gradebook))
 console.log(gradebooks.readAll(gradebook))
 // console.log(teachers.read(teacherId));
-
-
 // console.log(LMS.subjects)
