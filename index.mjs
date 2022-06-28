@@ -292,8 +292,8 @@ gradebooks.addRecord(gradebook, record1);
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
+// console.log(gradebooks.readAll(gradebook))
 console.log(gradebooks.readAll(gradebook))
-// console.log(gradebooks.readAll(gradebook)[1].records)
 // console.log(teachers.read(teacherId));
 
 

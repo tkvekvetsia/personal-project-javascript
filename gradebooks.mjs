@@ -1,7 +1,5 @@
-import { validatePerson} from "./validator.mjs";
-import { Groups } from "./groups.mjs";
 import { vaidateRecord } from "./validator.mjs";
-import { Subject } from "./lms.mjs";
+
 
 export class Gradebooks{
     static counter = 1;
@@ -18,9 +16,7 @@ export class Gradebooks{
         if(typeof groupId !== 'string'){
             throw new Error('groupid is not a string');
         }
-        if(!Groups.groups.get(groupId)){
-            throw new Error("group id is not valid");
-        }
+        
         let id = String(Gradebooks.counter++)
         let groupObj = this.groups.read(groupId);
         delete groupObj.id;
@@ -132,7 +128,5 @@ export class Gradebooks{
         }
         return arr;
     }
-
-    
   
 }
