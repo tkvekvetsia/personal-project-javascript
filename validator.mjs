@@ -104,7 +104,7 @@ export function validatePerson(data){
     };
 
     if(data.sex !== "male" && data.sex !== "female"){
-        throw new Error('sex is required and it must be a string');
+        throw new Error('sex is required and it must be a string: male or female');
     };
     
     //name key validation
