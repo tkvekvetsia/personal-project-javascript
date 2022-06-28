@@ -1,5 +1,6 @@
 import { LMS } from "./lms.mjs"
-
+import { Groups} from "./groups.mjs"
+import { Teachers } from "./teachers.mjs"
 
 function validateObj(obj){
     let result = false;
@@ -252,4 +253,23 @@ export function vaidateRecord(gradebookId, recordData){
         throw new Error("key is not valid")
     }
 
+}
+
+
+export function isLmsInstance(lms){
+    if(!(lms instanceof LMS)){
+        throw new Error("not instance of lms");
+    }
+}
+
+export function isGroupsInstance(groups){
+    if(!(groups instanceof Groups)){
+        throw new Error("not instance of Groups")
+    }
+}
+
+export function isTeachersInstance(teachers){
+    if(!(teachers instanceof Teachers)){
+        throw new Error("not instance of teachers")
+    }
 }

@@ -241,7 +241,6 @@ groups.update(groupId, {
 const pupilID = pupil.id;
 const teacherID = teacherId;
 const gradebooks = new Gradebooks(groups, teachers, lms);
-
 const gradebook = gradebooks.add(groupId);
 
 
@@ -256,6 +255,8 @@ const record = {
   lesson: 1,
   mark: 9
 };
+
+
 const record1 = {
   pupilId: pupil2.id,
   teacherId: teacherId,
@@ -279,5 +280,5 @@ gradebooks.addRecord(gradebook, record1);
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
-// console.log(gradebooks.readAll(gradebook)[1].records)
-// console.log(gradebooks.readAll(gradebook))
+// console.log(gradebooks.readAll(gradebook)[0])
+

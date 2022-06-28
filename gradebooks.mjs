@@ -1,4 +1,4 @@
-import { vaidateRecord } from "./validator.mjs";
+import { vaidateRecord, isGroupsInstance, isLmsInstance, isTeachersInstance } from "./validator.mjs";
 
 
 export class Gradebooks{
@@ -7,6 +7,9 @@ export class Gradebooks{
   
 
     constructor(groups, teachers, lms){
+        isGroupsInstance(groups);
+        isTeachersInstance(teachers);
+        isLmsInstance(lms);
         this.groups = groups;
         this.teachers = teachers;
         this.lms = lms;
