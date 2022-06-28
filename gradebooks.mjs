@@ -38,11 +38,15 @@ export class Gradebooks{
         let pupilFullName = ''
         let pupilsArr = Gradebooks.gradebooksDb.get(gradebookId).pupils;
         let gradbookObj = Gradebooks.gradebooksDb.get(gradebookId);
+        //pupilId validation
+        let condition = true;
         for (let i = 0; i < pupilsArr.length; i++){
-            if(!pupilsArr[i].id){
-                throw Error("pupil id is not valid")
+            if(pupilsArr[i].id === recordData.pupilId){
+                condition = false
             }
         }
+        if(condition)throw new Error("pupilId is not valid")
+
 
         for (let i = 0; i < pupilsArr.length; i++){
             if(pupilsArr[i].id === recordData.pupilId){
@@ -66,13 +70,23 @@ export class Gradebooks{
 
          //get subject
          const subjArr = this.lms.readAll();
+        //subjectId validation
+        let isNotTeacherid = true;
+        for(let i = 0; i < subjArr.length; i++){
+            if(subjArr[i].id === recordData.subjectId){
+                isNotTeacherid = false
+                
+           }
+        }
+        if(isNotTeacherid) throw new Error('subjectid is not valid')
+
          let subject = ''
    
          for(let i = 0; i < subjArr.length; i++){
              if(subjArr[i].id === recordData.subjectId){
                  subject = subjArr[i].title
                  
-             }
+            }
          }
          recordObj.subject = subject;
          //leson and mark
