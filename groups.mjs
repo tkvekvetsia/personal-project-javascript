@@ -64,6 +64,9 @@ export class Groups{
         if(!updateInfo.room || typeof updateInfo.room !== 'number'){
             throw new Error('room is required and it must be a number')
         }
+        if(Object.getOwnPropertyNames(updateInfo).length > 1){
+            throw new Error('key is not valid')
+        }
 
         Groups.groups.get(groupId).room = updateInfo.room
     }

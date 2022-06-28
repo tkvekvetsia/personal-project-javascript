@@ -280,5 +280,5 @@ gradebooks.addRecord(gradebook, record1);
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
-// console.log(gradebooks.readAll(gradebook)[0])
+console.log(gradebooks.readAll(gradebook)[0])
 

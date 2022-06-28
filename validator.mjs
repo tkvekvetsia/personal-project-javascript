@@ -242,7 +242,7 @@ export function vaidateRecord(gradebookId, recordData){
     } 
 
     if(typeof recordData.lesson !== 'number'){
-        throw new Error("pupilId is required and it must be a number")
+        throw new Error("lesson is required and it must be a number")
     }
 
     if(typeof recordData.mark !== 'number'){
