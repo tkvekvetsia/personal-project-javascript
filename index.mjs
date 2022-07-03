@@ -51,7 +51,7 @@ let teacherData = {
       last: "doe",
     },
 
-    dateOfBirth: "12.05.1999", // format date
+    dateOfBirth: "12.31.1999", // format date
 
     emails: [
       {
@@ -99,7 +99,7 @@ const  updatedProfile ={
         last: "boe",
       },
   
-      dateOfBirth: "11.02.1995", // format date
+      dateOfBirth: "12.02.1995", // format date
   
       emails: [
         {
@@ -280,5 +280,5 @@ gradebooks.addRecord(gradebook, record1);
 // console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
-console.log(gradebooks.readAll(gradebook)[0])
+console.log(gradebooks.readAll(gradebook))
 
