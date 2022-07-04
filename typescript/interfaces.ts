@@ -20,7 +20,7 @@ type sex = 'male' | "female"
 
 
 
-interface person{
+export interface person{
     name: {
       first: string,
       last: string

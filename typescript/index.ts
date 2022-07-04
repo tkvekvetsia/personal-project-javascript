@@ -1,6 +1,8 @@
+import { teacher, person } from "./interfaces";
 import { Subject, LMS } from "./lms";
 import { Teachers } from "./teachers";
-import { teacher } from "./interfaces";
+import { Pupils } from "./pupils";
+
 
 
 const history = new Subject({
@@ -122,3 +124,54 @@ const  updatedProfile: teacher={
 
 // console.log(teachers.remove(teacherId))
 // console.log(teacherId)
+
+
+//pupil
+let pupilData: person = {
+  name: {
+    first: "jimy",
+    last: "foo"
+  },
+  dateOfBirth: "12.05.2015", // format date
+  phones: [
+    {
+      phone: "555",
+      primary: true
+    }
+  ],
+  sex: "male", // male OR female
+  description: "string"
+}
+
+
+// Create new Pupil from Pupil's data
+const pupils = new Pupils();
+
+// // Create a new pupil
+const pupil = pupils.add(pupilData);
+// console.log(pupil)
+// const pupil2 = pupils.add(pupilData2);
+
+// console.log(pupil.id) // should return pupil 
+
+// console.log(pupils.read(pupil.id))
+
+let pupilUpdate: person = {
+  name: {
+    first: "anna",
+    last: "goo"
+  },
+  dateOfBirth: "12.05.2015", // format date
+  phones: [
+    {
+      phone: "333",
+      primary: true
+    }
+  ],
+  sex: "female", // male OR female
+  description: "string"
+}
+
+pupils.update(pupil.id, pupilUpdate);
+// console.log(pupils.read(pupil.id));
+// pupils.remove(pupil.id)
