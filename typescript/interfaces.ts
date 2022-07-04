@@ -36,6 +36,16 @@ export interface teacher extends person{
    subjects: sub
 }
 
+
+
 export function isDate(date: string):boolean{
     return /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/.test(date)
+}
+
+export interface record{
+    pupilId: string;
+    teacherId: string;
+    subjectId: string;
+    lesson: number;
+    mark: number
 }

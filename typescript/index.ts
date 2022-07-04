@@ -1,7 +1,9 @@
-import { teacher, person } from "./interfaces";
+import { teacher, person, record } from "./interfaces";
 import { Subject, LMS } from "./lms";
 import { Teachers } from "./teachers";
 import { Pupils } from "./pupils";
+import { Groups } from "./groups";
+import { Gradebooks } from "./gradbooks";
 
 
 
@@ -73,7 +75,7 @@ const teacherData: teacher = {
 }
 
 const teachers = new Teachers();
-const teacherId = teachers.add(teacherData);
+const teacherId: string= teachers.add(teacherData);
 // console.log(teachers.read(teacherId));
 teachers.read(teacherId)
 
@@ -145,12 +147,12 @@ let pupilData: person = {
 
 
 // Create new Pupil from Pupil's data
-const pupils = new Pupils();
+const pupils  = new Pupils();
 
 // // Create a new pupil
 const pupil = pupils.add(pupilData);
 // console.log(pupil)
-// const pupil2 = pupils.add(pupilData2);
+const pupil2 = pupils.add(pupilData);
 
 // console.log(pupil.id) // should return pupil 
 
@@ -175,3 +177,74 @@ let pupilUpdate: person = {
 pupils.update(pupil.id, pupilUpdate);
 // console.log(pupils.read(pupil.id));
 // pupils.remove(pupil.id)
+
+
+//groups
+const room: number = 236;
+const groups: Groups = new Groups();
+const groupId: string = groups.add(room);
+// console.log(groupId)
+groups.addPupil(groupId, pupil);
+groups.addPupil(groupId, pupil2);
+
+// console.log( Groups.groups.get(groupId).pupils)
+groups.removePupil(groupId, '2');
+// console.log( Groups.groups.get(groupId).pupils)
+// console.log(Groups.groups)
+groups.update(groupId, {
+  room: 237
+})
+// console.log( Groups.groups.get(groupId).room)
+console.log(groups.read(groupId))
+// console.log(groups.readAll());
+
+
+//gradebooks
+
+
+
+const pupilID = pupil.id;
+const teacherID = teacherId;
+const gradebooks = new Gradebooks(groups, teachers, lms);
+const gradebook = gradebooks.add(groupId);
+
+
+// ;
+// // gradebooks.clear();
+
+
+const record: record = {
+  pupilId: pupilID,
+  teacherId: teacherId,
+  subjectId: history.id,
+  lesson: 1,
+  mark: 9
+};
+
+
+console.log(Gradebooks.gradebooksDb)
+
+// const record1 = {
+//   pupilId: pupil2.id,
+//   teacherId: teacherId,
+//   subjectId: geography.id,
+//   lesson: 1,
+//   mark: 9
+// };
+
+
+
+
+// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+
+// // console.log(Gradebooks.gradebooksDb.get(gradebook));
+// gradebooks.addRecord(gradebook, record);
+// gradebooks.addRecord(gradebook, record1);
+
+
+
+// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// console.log(Gradebooks.gradebooksDb.get(gradebook));
+// console.log(gradebooks.read(gradebook, pupilID))
+// console.log(gradebooks.readAll(gradebook))
+

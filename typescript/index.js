@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const lms_1 = require("./lms");
 const teachers_1 = require("./teachers");
 const pupils_1 = require("./pupils");
+const groups_1 = require("./groups");
+const gradbooks_1 = require("./gradbooks");
 const history = new lms_1.Subject({
     title: 'history',
     lessons: 24,
@@ -119,7 +121,7 @@ const pupils = new pupils_1.Pupils();
 // // Create a new pupil
 const pupil = pupils.add(pupilData);
 // console.log(pupil)
-// const pupil2 = pupils.add(pupilData2);
+const pupil2 = pupils.add(pupilData);
 // console.log(pupil.id) // should return pupil 
 // console.log(pupils.read(pupil.id))
 let pupilUpdate = {
@@ -140,3 +142,50 @@ let pupilUpdate = {
 pupils.update(pupil.id, pupilUpdate);
 // console.log(pupils.read(pupil.id));
 // pupils.remove(pupil.id)
+//groups
+const room = 236;
+const groups = new groups_1.Groups();
+const groupId = groups.add(room);
+// console.log(groupId)
+groups.addPupil(groupId, pupil);
+groups.addPupil(groupId, pupil2);
+// console.log( Groups.groups.get(groupId).pupils)
+groups.removePupil(groupId, '2');
+// console.log( Groups.groups.get(groupId).pupils)
+// console.log(Groups.groups)
+groups.update(groupId, {
+    room: 237
+});
+// console.log( Groups.groups.get(groupId).room)
+// console.log(groups.read(groupId))
+// console.log(groups.readAll());
+//gradebooks
+const pupilID = pupil.id;
+const teacherID = teacherId;
+const gradebooks = new gradbooks_1.Gradebooks(groups, teachers, lms);
+const gradebook = gradebooks.add(groupId);
+// ;
+// // gradebooks.clear();
+const record = {
+    pupilId: pupilID,
+    teacherId: teacherId,
+    subjectId: history.id,
+    lesson: 1,
+    mark: 9
+};
+console.log(gradbooks_1.Gradebooks.gradebooksDb);
+// const record1 = {
+//   pupilId: pupil2.id,
+//   teacherId: teacherId,
+//   subjectId: geography.id,
+//   lesson: 1,
+//   mark: 9
+// };
+// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// // console.log(Gradebooks.gradebooksDb.get(gradebook));
+// gradebooks.addRecord(gradebook, record);
+// gradebooks.addRecord(gradebook, record1);
+// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// console.log(Gradebooks.gradebooksDb.get(gradebook));
+// console.log(gradebooks.read(gradebook, pupilID))
+// console.log(gradebooks.readAll(gradebook))
