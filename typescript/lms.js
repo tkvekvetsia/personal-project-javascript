@@ -16,6 +16,7 @@ Subject.subjectid = String(Subject.counter);
 class LMS {
     add(subj) {
         LMS.subjects.set(subj.id, Object.assign({ id: subj.id }, subj));
+        return subj.id;
     }
     remove(subj) {
         LMS.subjects.delete(subj.id);

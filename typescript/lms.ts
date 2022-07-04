@@ -18,8 +18,9 @@ export class LMS{
     static counter: number = 1;
     static subjects = new Map();
 
-    public add(subj: Subject): void{
+    public add(subj: Subject): string{
         LMS.subjects.set(subj.id, {id: subj.id, ...subj});
+        return subj.id;
     }
 
     public remove(subj: Subject){
