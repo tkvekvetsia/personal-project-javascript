@@ -49,3 +49,6 @@ export interface record{
     lesson: number;
     mark: number
 }
+
+
+

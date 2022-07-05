@@ -11,6 +11,7 @@ const history = new lms_1.Subject({
     // description : "string"
 });
 // console.log(history)
+// console.log(history.id)
 const lms = new lms_1.LMS();
 lms.add(history);
 lms.verify(history);
@@ -150,7 +151,7 @@ const groupId = groups.add(room);
 groups.addPupil(groupId, pupil);
 groups.addPupil(groupId, pupil2);
 // console.log( Groups.groups.get(groupId).pupils)
-groups.removePupil(groupId, '2');
+// groups.removePupil(groupId, '2');
 // console.log( Groups.groups.get(groupId).pupils)
 // console.log(Groups.groups)
 groups.update(groupId, {
@@ -167,13 +168,16 @@ const gradebook = gradebooks.add(groupId);
 // ;
 // // gradebooks.clear();
 const record = {
-    pupilId: pupilID,
+    pupilId: pupil.id,
     teacherId: teacherId,
     subjectId: history.id,
     lesson: 1,
     mark: 9
 };
-console.log(gradbooks_1.Gradebooks.gradebooksDb);
+gradebooks.addRecord(gradebook, record);
+// console.log(Gradebooks.gradebooksDb.get(gradebook)['2'].records)
+// gradebooks.addRecord(gradebook, record)
+// console.log(Gradebooks.gradebooksDb)
 // const record1 = {
 //   pupilId: pupil2.id,
 //   teacherId: teacherId,
@@ -185,7 +189,7 @@ console.log(gradbooks_1.Gradebooks.gradebooksDb);
 // // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // gradebooks.addRecord(gradebook, record);
 // gradebooks.addRecord(gradebook, record1);
-// console.log(Gradebooks.gradebooksDb.get(gradebook)[pupilID]);
+// gradebooks.addRecord(gradebook, record);
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
 // console.log(gradebooks.readAll(gradebook))

@@ -13,7 +13,7 @@ export class Teachers{
         return id;
     }
 
-    public read(id: string): void{
+    public read(id: string){
         if(!Teachers.teachers.has(id)){
             return null
         }else{
