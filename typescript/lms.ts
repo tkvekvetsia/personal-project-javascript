@@ -1,25 +1,42 @@
-import { Subj, Id } from "./interfaces";
+import { Subj, Id, Lap } from "./interfaces";
 
 export class Subject{
     static counter: number = 1;
-     #subjectid = String(Subject.counter);
+     #id = String(Subject.counter);
+     public title: string;
+     public lessons: number;
+     public description: string
 
     constructor(subj: Subj){    
-        Object.assign(this, subj)
+        this.title = subj.title;
+        this.lessons = subj.lessons;
+        if(subj.description){
+            this.description =subj.description
+        }
         Subject.counter++
     }
     get id(): string{
-        return this.#subjectid
+        return this.#id
     }
 }
 
 
 export class LMS{
     static counter: number = 1;
-    static subjects = new Map();
+    static subjects:Map<string, Subj & Id> = new Map();
 
     public add(subj: Subject): string{
-        LMS.subjects.set(subj.id, {id: subj.id, ...subj});
+        let obj: Subj & Id = {
+            title: subj.title,
+            lessons: subj.lessons,
+            id: subj.id,
+            // #id: subj.id
+        }
+        if(subj.description){
+            obj.description = subj.description
+        }
+        
+        LMS.subjects.set(subj.id, obj);
         return subj.id;
     }
 
@@ -31,7 +48,7 @@ export class LMS{
         return LMS.subjects.has(subj.id);
    }
 
-   public readAll(): (Subj & Id)[]{
+   public readAll(){
         return[...LMS.subjects.values()]
    }
 }

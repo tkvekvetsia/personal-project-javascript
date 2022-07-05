@@ -2,11 +2,11 @@ import { Person, GroupInterface, Id } from "./interfaces";
 
 export class Groups{
     static counter = 1;
-    static groups = new Map();
+    static groups  = new Map();
 
     public add(room: number): string{
         let id: string = String(Groups.counter++);
-        Groups.groups.set(id, {room: room, pupils: []});
+        Groups.groups.set(id, {room: room, pupils:[]});
         return id;
     }
 

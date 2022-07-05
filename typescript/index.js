@@ -14,12 +14,13 @@ const history = new lms_1.Subject({
 // console.log(history.id)
 const lms = new lms_1.LMS();
 lms.add(history);
+console.log(lms_1.LMS.subjects);
 lms.verify(history);
 // console.log(lms.verify(history));
 // console.log(lms.readAll())
 // console.log(lms.verify(history))
 // lms.remove(history)
-// console.log(lms.readAll())
+console.log(lms.readAll());
 //teachers
 //teachers
 const teacherData = {

@@ -4,6 +4,14 @@ export interface Subj{
     description?: string
 }
 
+export interface Lap{
+    id: string;
+    title: string;
+    lessons: number;
+    description?: string;
+    
+}
+
 interface Phones{
     phone: string, primary: boolean
 }
@@ -54,8 +62,10 @@ export interface Id{
     id: string;
 }
 
+
+
 export interface GroupInterface{
     room: number;
-    pupils: Person & {id: string}[]
+    pupils: Person & {id: string}[] 
     
 }

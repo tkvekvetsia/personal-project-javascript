@@ -20,6 +20,7 @@ const history = new Subject({
 
 const lms = new LMS();
 lms.add(history);
+// console.log(LMS.subjects)
 lms.verify(history)
 // console.log(lms.verify(history));
 // console.log(lms.readAll())

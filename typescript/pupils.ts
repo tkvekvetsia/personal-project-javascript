@@ -2,7 +2,7 @@ import { Person, Id } from "./interfaces";
 
 export class Pupils{
     static counter = 1;
-    static pupilsDb = new Map();
+    static pupilsDb: Map<string, Person> = new Map();
 
     public  add(pupilData: Person){
         let id: string = String(Pupils.counter++);

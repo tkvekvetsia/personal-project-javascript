@@ -2,7 +2,7 @@ import { Teacher, isDate, Id} from "./interfaces";
 
 export class Teachers{
     static counter: number = 1;
-    static teachers = new Map();
+    static teachers: Map<string, Teacher> = new Map();
 
     public add(data: Teacher): string{
         if(!isDate(data.dateOfBirth)){
