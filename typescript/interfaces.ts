@@ -5,17 +5,17 @@ export interface subject{
 }
 
 interface phones{
-    [index: number]:{phone: string, primary: boolean}
+    phone: string, primary: boolean
 }
 interface emails{
-    [index: number]:{email: string, primary: boolean}
+    email: string, primary: boolean
 }
 
 interface sub{
-    [index: number]: {subject: string}
+    subject: string
 }
 
-type sex = 'male' | "female"
+// type sex = 'male' | "female"
 
 
 
@@ -26,14 +26,14 @@ export interface person{
       last: string
     },
     dateOfBirth: string , // format date
-    phones: phones,
-    sex: sex, // male or female
+    phones: phones[]
+    sex: string, // male or female
     description?: string,
 }
 
 export interface teacher extends person{
-   emails: emails;
-   subjects: sub
+   emails: emails[];
+   subjects: sub[]
 }
 
 
