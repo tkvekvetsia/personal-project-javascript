@@ -1,4 +1,4 @@
-import { Teacher, isDate} from "./interfaces";
+import { Teacher, isDate, Id} from "./interfaces";
 
 export class Teachers{
     static counter: number = 1;
@@ -13,7 +13,7 @@ export class Teachers{
         return id;
     }
 
-    public read(id: string){
+    public read(id: string):(Teacher & Id) | null{
         if(!Teachers.teachers.has(id)){
             return null
         }else{

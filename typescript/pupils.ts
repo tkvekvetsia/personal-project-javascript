@@ -1,4 +1,4 @@
-import { Person } from "./interfaces";
+import { Person, Id } from "./interfaces";
 
 export class Pupils{
     static counter = 1;
@@ -10,7 +10,7 @@ export class Pupils{
         return {id, ...pupilData}
     }
 
-    public read(id: string){
+    public read(id: string): (Id & Person){
         if(!Pupils.pupilsDb.has(id)){
             throw new Error("id is not valid")
         }
@@ -18,7 +18,7 @@ export class Pupils{
         return {id, ...Pupils.pupilsDb.get(id)};
     }
 
-    public update(id: string, updateProfile: Person){
+    public update(id: string, updateProfile: Person): string{
         if(!Pupils.pupilsDb.has(id)){
             throw new Error("id is not valid")
         }

@@ -122,7 +122,7 @@ const  updatedProfile: Teacher={
     ],
     description: "string"
 }
-// const  teacherId1 = teachers.update(teacherId, updatedProfile);
+const  teacherId1 = teachers.update(teacherId, updatedProfile);
 // console.log(teachers.read(teacherId))
 
 // console.log(teachers.remove(teacherId))
@@ -254,4 +254,3 @@ gradebooks.addRecord(gradebook, record)
 // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
 // console.log(gradebooks.readAll(gradebook))
-

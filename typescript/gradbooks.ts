@@ -1,7 +1,7 @@
 import { LMS } from "./lms";
 import { Groups } from "./groups";
 import { Teachers } from "./teachers";
-import { Record, Person, Subj} from "./interfaces";
+import { Record, Person, Subj, Id, GroupInterface} from "./interfaces";
 import { Pupils } from "./pupils";
 
 
@@ -20,7 +20,7 @@ export class Gradebooks{
 
     public add(groupId: string): string{
         let id: string = String(Gradebooks.counter++)
-        let groupObj = this.groups.read(groupId);
+        let groupObj: GroupInterface & Id = this.groups.read(groupId);
         delete groupObj.id;
         Gradebooks.gradebooksDb.set(id, {...groupObj});
         return id;
@@ -31,7 +31,7 @@ export class Gradebooks{
     }
 
 
-    public addRecord(gradebookId: string, recordData :Record){
+    public addRecord(gradebookId: string, recordData :Record): void{
         if(!Groups.groups.has(gradebookId)) throw new Error("invalid id")
 
         
@@ -76,13 +76,13 @@ export class Gradebooks{
 
     }
     
-    public read(gradebookId: string, pupilId: string){
+    public read(gradebookId: string, pupilId: string):({records: Record[]; name:string}){
         if(!Gradebooks.gradebooksDb.has(gradebookId)) throw new Error("invalid gradbookId")
         return Gradebooks.gradebooksDb.get(gradebookId)[pupilId];
         
     }
 
-    public readAll(gradebookId: string){
+    public readAll(gradebookId: string):{records: Record[]; name:string}[]{
         if(!Gradebooks.gradebooksDb.has(gradebookId)) throw new Error("invalid gradbookId")
         const arr = []
         for (let key in Gradebooks.gradebooksDb.get(gradebookId)){

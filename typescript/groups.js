@@ -10,7 +10,6 @@ class Groups {
     addPupil(groupId, pupil) {
         if (!Groups.groups.has(groupId))
             throw new Error("invalid id");
-        let pupilId = pupil.id;
         Groups.groups.get(groupId).pupils.push(pupil);
     }
     removePupil(groupId, pupilId) {

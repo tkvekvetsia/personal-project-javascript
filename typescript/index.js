@@ -97,7 +97,7 @@ const updatedProfile = {
     ],
     description: "string"
 };
-// const  teacherId1 = teachers.update(teacherId, updatedProfile);
+const teacherId1 = teachers.update(teacherId, updatedProfile);
 // console.log(teachers.read(teacherId))
 // console.log(teachers.remove(teacherId))
 // console.log(teacherId)

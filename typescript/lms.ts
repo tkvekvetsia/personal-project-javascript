@@ -1,4 +1,4 @@
-import { Subj } from "./interfaces";
+import { Subj, Id } from "./interfaces";
 
 export class Subject{
     static counter: number = 1;
@@ -23,7 +23,7 @@ export class LMS{
         return subj.id;
     }
 
-    public remove(subj: Subject){
+    public remove(subj: Subject): void{
         LMS.subjects.delete(subj.id);
     }
 
@@ -31,7 +31,7 @@ export class LMS{
         return LMS.subjects.has(subj.id);
    }
 
-   public readAll(): (Subj &{id : string})[]{
+   public readAll(): (Subj & Id)[]{
         return[...LMS.subjects.values()]
    }
 }

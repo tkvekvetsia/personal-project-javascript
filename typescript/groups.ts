@@ -1,4 +1,4 @@
-import { Person } from "./interfaces";
+import { Person, GroupInterface, Id } from "./interfaces";
 
 export class Groups{
     static counter = 1;
@@ -10,9 +10,8 @@ export class Groups{
         return id;
     }
 
-    public addPupil(groupId: string, pupil: Person & {id:string}):void{
+    public addPupil(groupId: string, pupil: Person & Id):void{
         if(!Groups.groups.has(groupId)) throw new Error("invalid id");
-        let pupilId = pupil.id;
         Groups.groups.get(groupId).pupils.push(pupil);
     }
 
@@ -21,7 +20,7 @@ export class Groups{
             throw new Error("invalid group id")
         }
         let arrOfPupils = Groups.groups.get(groupId).pupils;
-        if(arrOfPupils.findIndex((pupil :  {id: string}) => pupil.id === pupilId) < 0){
+        if(arrOfPupils.findIndex((pupil : Person & Id) => pupil.id === pupilId) < 0){
             throw new Error("invalid pupilId")
         }
     
@@ -32,19 +31,19 @@ export class Groups{
         }
     }
 
-    public update(groupId: string, updateInfo: {room : number}){
+    public update(groupId: string, updateInfo: {room : number}): void{
       if(!Groups.groups.get(groupId)) throw new Error("invalid groupid")
 
         Groups.groups.get(groupId).room = updateInfo.room
     }
 
-    public read(groupId: string){
+    public read(groupId: string): Id & GroupInterface{
       if(!Groups.groups.get(groupId)) throw new Error("invalid groupid")
         
         return {id: groupId, ...Groups.groups.get(groupId)}
     }
 
-    public readAll(){
+    public readAll():GroupInterface []{
         return [...Groups.groups.values()];
     }
 

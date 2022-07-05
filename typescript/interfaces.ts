@@ -50,5 +50,12 @@ export interface Record{
     mark: number
 }
 
+export interface Id{
+    id: string;
+}
 
-
+export interface GroupInterface{
+    room: number;
+    pupils: Person & {id: string}[]
+    
+}
