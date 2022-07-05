@@ -1,10 +1,10 @@
-import { subject } from "./interfaces";
+import { Subj } from "./interfaces";
 
 export class Subject{
     static counter: number = 1;
      #subjectid = String(Subject.counter);
 
-    constructor(subj: subject){    
+    constructor(subj: Subj){    
         Object.assign(this, subj)
         Subject.counter++
     }
@@ -31,7 +31,7 @@ export class LMS{
         return LMS.subjects.has(subj.id);
    }
 
-   public readAll(): (subject &{id : string})[]{
+   public readAll(): (Subj &{id : string})[]{
         return[...LMS.subjects.values()]
    }
 }

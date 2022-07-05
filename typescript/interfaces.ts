@@ -1,17 +1,17 @@
-export interface subject{
+export interface Subj{
     title: string;
     lessons: number;
     description?: string
 }
 
-interface phones{
+interface Phones{
     phone: string, primary: boolean
 }
-interface emails{
+interface Emails{
     email: string, primary: boolean
 }
 
-interface sub{
+interface Sub{
     subject: string
 }
 
@@ -20,20 +20,20 @@ interface sub{
 
 
 
-export interface person{
+export interface Person{
     name: {
       first: string,
       last: string
     },
     dateOfBirth: string , // format date
-    phones: phones[]
+    phones: Phones[]
     sex: string, // male or female
     description?: string,
 }
 
-export interface teacher extends person{
-   emails: emails[];
-   subjects: sub[]
+export interface Teacher extends Person{
+   emails: Emails[];
+   subjects: Sub[]
 }
 
 
@@ -42,7 +42,7 @@ export function isDate(date: string):boolean{
     return /^((0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2})*$/.test(date)
 }
 
-export interface record{
+export interface Record{
     pupilId: string;
     teacherId: string;
     subjectId: string;

@@ -1,4 +1,4 @@
-import { teacher, person, record } from "./interfaces";
+import { Teacher, Person, Record } from "./interfaces";
 import { Subject, LMS } from "./lms";
 import { Teachers } from "./teachers";
 import { Pupils } from "./pupils";
@@ -30,7 +30,7 @@ lms.verify(history)
 //teachers
 //teachers
 
-const teacherData: teacher = {
+const teacherData: Teacher = {
     name: {
       first: "john",
       last: "doe"
@@ -80,7 +80,7 @@ const teacherId: string= teachers.add(teacherData);
 // console.log(teachers.read(teacherId));
 teachers.read(teacherId)
 
-const  updatedProfile: teacher={
+const  updatedProfile: Teacher={
   name: {
       first: "helena",
       last: "boe"
@@ -130,7 +130,7 @@ const  updatedProfile: teacher={
 
 
 //pupil
-let pupilData: person = {
+let pupilData: Person = {
   name: {
     first: "jimy",
     last: "foo"
@@ -159,7 +159,7 @@ const pupil2 = pupils.add(pupilData);
 
 // console.log(pupils.read(pupil.id))
 
-let pupilUpdate: person = {
+let pupilUpdate: Person = {
   name: {
     first: "anna",
     last: "goo"
@@ -215,7 +215,7 @@ const gradebook = gradebooks.add(groupId);
 // // gradebooks.clear();
 
 
-const record: record = {
+const record: Record = {
   pupilId: pupil.id,
   teacherId: teacherId,
   subjectId: history.id,

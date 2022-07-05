@@ -1,10 +1,10 @@
-import { teacher, isDate} from "./interfaces";
+import { Teacher, isDate} from "./interfaces";
 
 export class Teachers{
     static counter: number = 1;
     static teachers = new Map();
 
-    public add(data: teacher): string{
+    public add(data: Teacher): string{
         if(!isDate(data.dateOfBirth)){
             throw new Error("date of birth must be in format mm/dd/yyyy")
         }
@@ -21,7 +21,7 @@ export class Teachers{
         }
     }
 
-    public update(id: string, updateProfile: teacher): string{
+    public update(id: string, updateProfile: Teacher): string{
         Teachers.teachers.set(id, updateProfile);
         return id;
     }

@@ -1,7 +1,7 @@
 import { LMS } from "./lms";
 import { Groups } from "./groups";
 import { Teachers } from "./teachers";
-import { record, person, subject} from "./interfaces";
+import { Record, Person, Subj} from "./interfaces";
 import { Pupils } from "./pupils";
 
 
@@ -31,7 +31,7 @@ export class Gradebooks{
     }
 
 
-    public addRecord(gradebookId: string, recordData :record){
+    public addRecord(gradebookId: string, recordData :Record){
         if(!Groups.groups.has(gradebookId)) throw new Error("invalid id")
 
         
@@ -39,7 +39,7 @@ export class Gradebooks{
     const pupilsArr = Gradebooks.gradebooksDb.get(gradebookId).pupils;
     
         
-    const pupilData: person & {id: string} = pupilsArr.find((pupil: person & {id: string}) => pupil.id === recordData.pupilId);
+    const pupilData: Person & {id: string} = pupilsArr.find((pupil: Person & {id: string}) => pupil.id === recordData.pupilId);
     const pupilId: string = pupilData.id;
     let pupilFullName: string = `${pupilData.name.first} ${pupilData.name.last}`
   
@@ -49,7 +49,7 @@ export class Gradebooks{
 
     //  get subject
         const subjArr = this.lms.readAll();
-        const subj: subject &{id: string} = subjArr.find((subj: subject & {id: string})=> subj.id === recordData.subjectId)
+        const subj: Subj &{id: string} = subjArr.find((subj: Subj & {id: string})=> subj.id === recordData.subjectId)
         const subjTitle: string = subj.title 
  
         let recordObj = {

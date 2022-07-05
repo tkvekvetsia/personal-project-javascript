@@ -1,4 +1,4 @@
-import { person } from "./interfaces";
+import { Person } from "./interfaces";
 
 export class Groups{
     static counter = 1;
@@ -10,7 +10,7 @@ export class Groups{
         return id;
     }
 
-    public addPupil(groupId: string, pupil: person & {id:string}):void{
+    public addPupil(groupId: string, pupil: Person & {id:string}):void{
         if(!Groups.groups.has(groupId)) throw new Error("invalid id");
         let pupilId = pupil.id;
         Groups.groups.get(groupId).pupils.push(pupil);

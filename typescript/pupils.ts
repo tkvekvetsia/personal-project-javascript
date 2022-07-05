@@ -1,10 +1,10 @@
-import { person } from "./interfaces";
+import { Person } from "./interfaces";
 
 export class Pupils{
     static counter = 1;
     static pupilsDb = new Map();
 
-    public  add(pupilData: person){
+    public  add(pupilData: Person){
         let id: string = String(Pupils.counter++);
         Pupils.pupilsDb.set(id, pupilData)
         return {id, ...pupilData}
@@ -18,7 +18,7 @@ export class Pupils{
         return {id, ...Pupils.pupilsDb.get(id)};
     }
 
-    public update(id: string, updateProfile: person){
+    public update(id: string, updateProfile: Person){
         if(!Pupils.pupilsDb.has(id)){
             throw new Error("id is not valid")
         }
