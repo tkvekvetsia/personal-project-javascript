@@ -224,7 +224,7 @@ const record: Record = {
   mark: 9
 };
 
-gradebooks.addRecord(gradebook, record)
+// gradebooks.addRecord(gradebook, record)
 // console.log(Gradebooks.gradebooksDb.get(gradebook)['2'].records)
 // gradebooks.addRecord(gradebook, record)
 
@@ -252,6 +252,6 @@ gradebooks.addRecord(gradebook, record)
 
 // gradebooks.addRecord(gradebook, record);
 
-// console.log(Gradebooks.gradebooksDb.get(gradebook));
+console.log(Gradebooks.gradebooksDb.get(gradebook));
 // console.log(gradebooks.read(gradebook, pupilID))
 // console.log(gradebooks.readAll(gradebook))

@@ -62,10 +62,12 @@ export interface Id{
     id: string;
 }
 
-
+export interface PupilInterface extends Person{
+    id: string
+}
 
 export interface GroupInterface{
     room: number;
-    pupils: Person & {id: string}[] 
+    pupils: PupilInterface[] 
     
 }

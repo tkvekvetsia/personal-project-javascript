@@ -1,8 +1,8 @@
-import { Person, GroupInterface, Id } from "./interfaces";
+import { GroupInterface, Id, PupilInterface } from "./interfaces";
 
 export class Groups{
     static counter = 1;
-    static groups  = new Map();
+    static groups:Map<string, GroupInterface>  = new Map();
 
     public add(room: number): string{
         let id: string = String(Groups.counter++);
@@ -10,7 +10,7 @@ export class Groups{
         return id;
     }
 
-    public addPupil(groupId: string, pupil: Person & Id):void{
+    public addPupil(groupId: string, pupil: PupilInterface):void{
         if(!Groups.groups.has(groupId)) throw new Error("invalid id");
         Groups.groups.get(groupId).pupils.push(pupil);
     }
@@ -20,7 +20,7 @@ export class Groups{
             throw new Error("invalid group id")
         }
         let arrOfPupils = Groups.groups.get(groupId).pupils;
-        if(arrOfPupils.findIndex((pupil : Person & Id) => pupil.id === pupilId) < 0){
+        if(arrOfPupils.findIndex((pupil : PupilInterface) => pupil.id === pupilId) < 0){
             throw new Error("invalid pupilId")
         }
     
@@ -46,6 +46,6 @@ export class Groups{
     public readAll():GroupInterface []{
         return [...Groups.groups.values()];
     }
-
+    
 
 }
