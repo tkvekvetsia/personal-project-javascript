@@ -1,13 +1,13 @@
 import { LMS } from "./lms";
 import { Groups } from "./groups";
 import { Teachers } from "./teachers";
-import { Record, Person, Subj, Id, GroupInterface} from "./interfaces";
+import { Record, Person, Subj, Id, GroupInterface, GradbookInterface} from "./interfaces";
 import { Pupils } from "./pupils";
 
 
 export class Gradebooks{
     static counter = 1;
-    static gradebooksDb = new Map();
+    static gradebooksDb: Map<string, GradbookInterface> = new Map();
     private teachers: Teachers;
     private groups: Groups;
     private lms: LMS

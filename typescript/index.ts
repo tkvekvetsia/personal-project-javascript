@@ -250,8 +250,9 @@ const record: Record = {
 // gradebooks.addRecord(gradebook, record1);
 
 
-// gradebooks.addRecord(gradebook, record);
+gradebooks.addRecord(gradebook, record);
 
 console.log(Gradebooks.gradebooksDb.get(gradebook));
+console.log(typeof Gradebooks.gradebooksDb.get(gradebook)[pupil.id])
 // console.log(gradebooks.read(gradebook, pupilID))
 // console.log(gradebooks.readAll(gradebook))

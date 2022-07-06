@@ -71,3 +71,7 @@ export interface GroupInterface{
     pupils: PupilInterface[] 
     
 }
+
+export interface GradbookInterface extends GroupInterface{
+    [key: string]: any
+}

@@ -175,7 +175,7 @@ const record = {
     lesson: 1,
     mark: 9
 };
-gradebooks.addRecord(gradebook, record);
+// gradebooks.addRecord(gradebook, record)
 // console.log(Gradebooks.gradebooksDb.get(gradebook)['2'].records)
 // gradebooks.addRecord(gradebook, record)
 // console.log(Gradebooks.gradebooksDb)
@@ -190,7 +190,8 @@ gradebooks.addRecord(gradebook, record);
 // // console.log(Gradebooks.gradebooksDb.get(gradebook));
 // gradebooks.addRecord(gradebook, record);
 // gradebooks.addRecord(gradebook, record1);
-// gradebooks.addRecord(gradebook, record);
+gradebooks.addRecord(gradebook, record);
 console.log(gradbooks_1.Gradebooks.gradebooksDb.get(gradebook));
+console.log(typeof gradbooks_1.Gradebooks.gradebooksDb.get(gradebook)[pupil.id]);
 // console.log(gradebooks.read(gradebook, pupilID))
 // console.log(gradebooks.readAll(gradebook))
